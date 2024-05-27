@@ -1,0 +1,17 @@
+{
+    "builds": [{
+      "src": "first_project/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
+    }],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "first_project/wsgi.py"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "postgres://myuser:mypassword@localhost/mydb"
+    }
+  }
+  
